@@ -1,0 +1,9 @@
+.navbar {
+    position: fixed;
+    top: -100px; /* Initial position above the screen */
+    left: 0;
+    width: 100%;
+    color: white;
+    transition: top 1.5s ease; /* Apply transition effect to the 'top' property */
+  }
+  
