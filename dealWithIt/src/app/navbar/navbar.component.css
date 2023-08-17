@@ -9,8 +9,8 @@ body {
     backdrop-filter: blur(10px);
     display: flex;
     align-items: center;
-    height: 60px;
-    padding: 0 30px;
+    height: 70px;
+    padding: 0 20px;
     margin-left: 0px;
     padding-left: 0px;
   }
@@ -76,12 +76,12 @@ body {
   /* Media query for smaller screen widths */
   @media screen and (max-width: 550px) {
     .nav-links li a{
-      max-width: 100px;
-      font-size: 18px;
+      max-width: 120px;
+      font-size: 16px;
     }
   
     .logo-image {
-      max-width: 100px;
+      max-width: 120px;
     }
   }
   
