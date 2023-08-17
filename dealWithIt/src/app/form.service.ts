@@ -12,57 +12,56 @@ export class FormService {
       'cust-info', 'new-lines-qty', 'provider-info', 'current-plan-info', 'provider-trans-type',
       'newline-trans-type', 'phone-selection', 'data-req', 'home-service', 'barcode-display'
     ];
-  private currentStepIndex: number = 0;
   private path: number[] = [0];
 
   constructor(private router: Router) { }
-
-  getCurrentStep(): string {
-    return this.steps[this.currentStepIndex];
-  }
 
   getParentStep(): number | undefined {
     return this.path.pop()
   }
 
-  navigateToNextStep(userInput: string): void {
-    if (this.currentStepIndex == 0 || this.currentStepIndex == 1 || this.currentStepIndex == 3
-      || this.currentStepIndex == 6 || this.currentStepIndex == 7 || this.currentStepIndex == 8) {
-      this.currentStepIndex++;
-      this.path.push(this.currentStepIndex);
-      this.router.navigate([this.steps[this.currentStepIndex]]);
+  setCurrentStep(step: number): void {
+    this.router.navigate([this.steps[step]]);
+  }
 
-    } else if (this.currentStepIndex == 2) {
+  navigateToNextStep(userInput: string, currentStepIndex: number): void {
+    if (currentStepIndex == 0 || currentStepIndex == 1 || currentStepIndex == 3
+      || currentStepIndex == 6 || currentStepIndex == 7 || currentStepIndex == 8) {
+      currentStepIndex++;
+      this.path.push(currentStepIndex);
+      this.router.navigate([this.steps[currentStepIndex]]);
+
+    } else if (currentStepIndex == 2) {
       if (userInput == "null") {
-        this.currentStepIndex = 5;
-        this.path.push(this.currentStepIndex);
-        this.router.navigate([this.steps[this.currentStepIndex]]);
+        currentStepIndex = 5;
+        this.path.push(currentStepIndex);
+        this.router.navigate([this.steps[currentStepIndex]]);
       } else {
-        this.currentStepIndex++;
-        this.path.push(this.currentStepIndex);
-        this.router.navigate([this.steps[this.currentStepIndex]]);
+        currentStepIndex++;
+        this.path.push(currentStepIndex);
+        this.router.navigate([this.steps[currentStepIndex]]);
       }
 
-    } else if (this.currentStepIndex == 4) {
+    } else if (currentStepIndex == 4) {
       if (userInput == "HUP") {
-        this.currentStepIndex = 6;
-        this.path.push(this.currentStepIndex);
-        this.router.navigate([this.steps[this.currentStepIndex]]);
+        currentStepIndex = 6;
+        this.path.push(currentStepIndex);
+        this.router.navigate([this.steps[currentStepIndex]]);
       } else if (userInput == "AAL") {
-        this.currentStepIndex = 5;
-        this.path.push(this.currentStepIndex);
-        this.router.navigate([this.steps[this.currentStepIndex]]);
+        currentStepIndex = 5;
+        this.path.push(currentStepIndex);
+        this.router.navigate([this.steps[currentStepIndex]]);
       }
 
-    } else if (this.currentStepIndex == 5) {
+    } else if (currentStepIndex == 5) {
       if (userInput == "FIN") {
-        this.currentStepIndex = 6;
-        this.path.push(this.currentStepIndex);
-        this.router.navigate([this.steps[this.currentStepIndex]]);
+        currentStepIndex = 6;
+        this.path.push(currentStepIndex);
+        this.router.navigate([this.steps[currentStepIndex]]);
       } else if (userInput == "BYOD") {
-        this.currentStepIndex = 7;
-        this.path.push(this.currentStepIndex);
-        this.router.navigate([this.steps[this.currentStepIndex]]);
+        currentStepIndex = 7;
+        this.path.push(currentStepIndex);
+        this.router.navigate([this.steps[currentStepIndex]]);
       }
     }
   }
