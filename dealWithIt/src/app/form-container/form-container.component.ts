@@ -33,7 +33,7 @@ export class FormContainerComponent implements OnInit{
   addCustInfo(formData: any): void {
     this.customer.name = formData.name;
     this.customer.phoneNum = formData.phone;
-    this.formService.navigateToNextStep("", 0);
+    // this.formService.navigateToNextStep("", 0);
   }
 
 
