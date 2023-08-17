@@ -7,8 +7,6 @@ import { Component } from '@angular/core';
 })
 export class FormContainerComponent {
 
-  title = "Welcome!";
-
   constructor() { }
   
 }
