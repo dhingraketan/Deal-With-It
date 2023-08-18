@@ -7,4 +7,17 @@ import { Component } from '@angular/core';
 })
 export class NewLinesQtyComponent {
 
+  title = "How May I Help You?"
+  newLinesQty!: number;
+
+  constructor() { }
+
+  onSubmit(formData: any): void {
+    this.newLinesQty = formData.newLinesQty;
+    console.log(formData);
+  }
+
+  goBack(): void {
+  }
+
 }

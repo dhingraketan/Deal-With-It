@@ -1,1 +1,81 @@
-<p>provider-info works!</p>
+<h3>{{ title }}</h3>
+
+<!-- show different providers as tiles with their logo in every tile and user should
+only be able to select one tile just like a radio button -->
+<div class="form-container">
+  <form #providerInfoForm="ngForm" (ngSubmit)="onSubmit(providerInfoForm.value)">
+    <div class="form-group">
+      <label class="type">Post-paid:</label>
+
+      <!-- Provider Tiles -->
+      <label class="provider-tile">
+        <input type="radio" name="provider" [(ngModel)]="currentProvider" value="rogers" required>
+        <img src="assets/rogers-logo.png" alt="Rogers logo" class="provider-logo">
+      </label>
+
+      <label class="provider-tile">
+        <input type="radio" name="provider" [(ngModel)]="currentProvider" value="fido" required>
+        <img src="assets/fido-logo.png" alt="Fido logo" class="provider-logo">
+      </label>
+
+      <label class="provider-tile">
+        <input type="radio" name="provider" [(ngModel)]="currentProvider" value="telus" required>
+        <img src="assets/telus-logo.png" alt="Telus logo" class="provider-logo">
+      </label>
+
+      <label class="provider-tile">
+        <input type="radio" name="provider" [(ngModel)]="currentProvider" value="koodo" required>
+        <img src="assets/koodo-logo.png" alt="Koodo logo" class="provider-logo">
+      </label>
+
+      <label class="provider-tile">
+        <input type="radio" name="provider" [(ngModel)]="currentProvider" value="bell" required>
+        <img src="assets/bell-logo.png" alt="Bell logo" class="provider-logo">
+      </label>
+
+      <label class="provider-tile">
+        <input type="radio" name="provider" [(ngModel)]="currentProvider" value="virgin" required>
+        <img src="assets/virgin-logo.png" alt="Virgin logo" class="provider-logo">
+      </label>
+
+      <label class="provider-tile">
+        <input type="radio" name="provider" [(ngModel)]="currentProvider" value="freedom" required>
+        <img src="assets/freedom-logo.png" alt="Freedom logo" class="provider-logo">
+      </label>
+
+      <div class="line"></div>
+
+      <label class="type">Pre-paid:</label>
+
+      <label class="provider-tile">
+        <input type="radio" name="provider" [(ngModel)]="currentProvider" value="chatr" required>
+        <img src="assets/chatr-logo.png" alt="Chatr logo" class="provider-logo">
+      </label>
+
+      <label class="provider-tile">
+        <input type="radio" name="provider" [(ngModel)]="currentProvider" value="lucky" required>
+        <img src="assets/lucky-logo.png" alt="Lucky logo" class="provider-logo">
+      </label>
+
+      <label class="provider-tile">
+        <input type="radio" name="provider" [(ngModel)]="currentProvider" value="koodoPrepaid" required>
+        <img src="assets/koodo-pre-logo.png" alt="Koodo Pre-paid logo" class="provider-logo">
+      </label>
+
+      <label class="provider-tile">
+        <input type="radio" name="provider" [(ngModel)]="currentProvider" value="freedomPrepaid" required>
+        <img src="assets/freedom-pre-logo.png" alt="Freedom Pre-paid logo" class="provider-logo">
+      </label>
+
+      <div class="line"></div>
+
+      <label class="provider-tile" id="noProvider">
+        <input type="radio" name="provider" [(ngModel)]="currentProvider" value="noProvider" required>
+        <img src="assets/no-provider-logo.png" alt="No Provider logo" class="provider-logo">
+      </label>
+
+    </div>
+    <button class="prevBtn" (click)="goBack()">&#60; Previous</button>
+    <button type="submit" class="nextBtn">Next ></button>
+  </form>
+</div>

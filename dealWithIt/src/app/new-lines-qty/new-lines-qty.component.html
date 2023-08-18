@@ -1,1 +1,19 @@
-<p>new-lines-qty works!</p>
+<h1>{{ title }}</h1>
+<!-- ask user how many lines the want to get or upgrade, get number input greater than 0-->
+<div class="form-container">
+  <form #newLinesQtyForm="ngForm" (ngSubmit)="onSubmit(newLinesQtyForm.value)">
+    <div class="form-group">
+      <label for="newLinesQty">How many new lines would you like to get or upgrade today?</label>
+      <input
+        type="number"
+        class="form-control"
+        id="newLinesQty"
+        name="newLinesQty"
+        required
+        [(ngModel)]="newLinesQty"
+      >
+    </div>
+    <button class="prevBtn" (click)="goBack()">&#60; Previous</button>
+    <button type="submit" class="nextBtn">Next ></button>
+  </form>
+</div>

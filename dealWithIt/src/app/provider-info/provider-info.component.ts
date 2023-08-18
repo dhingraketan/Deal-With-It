@@ -7,4 +7,17 @@ import { Component } from '@angular/core';
 })
 export class ProviderInfoComponent {
 
+  title = "Who is Your Current Provider:";
+  currentProvider!: string;
+
+  constructor() { }
+
+  onSubmit(formData: any): void {
+   this.currentProvider = formData.currentProvider;
+    console.log(formData);
+  }
+
+  goBack(): void {
+  }
+
 }
