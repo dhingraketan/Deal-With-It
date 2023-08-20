@@ -7,4 +7,17 @@ import { Component } from '@angular/core';
 })
 export class ProviderTransTypeComponent {
 
+  title = "How May I Help?";
+  transType!: string;
+
+  constructor() { }
+
+  onSubmit(formData: any): void {
+   this.transType = formData.transType;
+    console.log(formData);
+  }
+
+  goBack(): void {
+  }
+
 }

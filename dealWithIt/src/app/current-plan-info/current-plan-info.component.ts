@@ -7,4 +7,21 @@ import { Component } from '@angular/core';
 })
 export class CurrentPlanInfoComponent {
 
+  title = "Current Plan Details";
+  currentMonthlyCost!: number;
+  currentData!: number; 
+
+  constructor() { }
+
+  onSubmit(formData: any) {
+    this.currentMonthlyCost = formData.currentMonthlyCost;
+    this.currentData = formData.currentData;
+    console.log("Form submitted");
+  }
+
+  goBack() {
+    
+  }
+  
+
 }

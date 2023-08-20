@@ -1,1 +1,23 @@
-<p>provider-trans-type works!</p>
+<h3>{{ title }}</h3>
+
+<div class="form-container">
+  <form #providerInfoForm="ngForm" (ngSubmit)="onSubmit(providerInfoForm.value)">
+    <div class="form-group">
+      <label class="type">Would you Like to:</label>
+      
+      <label class="provider-tile" id="hup">
+        <input type="radio" name="hup" [(ngModel)]="transType" value="hup" required>
+        <img src="assets/hup-logo.png" alt="HUP Logo" class="provider-logo">
+      </label>
+
+      <h3>OR</h3>
+
+      <label class="provider-tile" id="aal">
+        <input type="radio" name="aal" [(ngModel)]="transType" value="aal" required>
+        <img src="assets/aal-logo.png" alt="AAL logo" class="provider-logo">
+      </label>
+    </div>
+    <button class="prevBtn" (click)="goBack()">&#60; Previous</button>
+    <button type="submit" class="nextBtn">Next ></button>
+  </form>
+</div>

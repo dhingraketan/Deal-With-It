@@ -1,1 +1,18 @@
-<p>current-plan-info works!</p>
+<h1>{{title}}</h1>
+<!-- get name and phone number from user -->
+<div class="form-container">
+  <form #custInfoForm="ngForm" (ngSubmit)="onSubmit(custInfoForm.value)">
+    <div class="form-group">
+      <label for="currentData">Monthly Cost:</label>
+      <input type="text" class="form-control" id="currentMonthlyCost" name="currentMonthlyCost" required
+        [(ngModel)]="currentMonthlyCost">
+    </div>
+    <div class="form-group">
+      <label for="currentData">Data/Month (GB):</label>
+      <input type="text" class="form-control" id="currentData" name="currentData" required [(ngModel)]="currentData">
+    </div>
+    <button type="submit" class="nextBtn">Next ></button>
+    <button class="prevBtn" (click)="goBack()">&#60; Previous</button>
+
+  </form>
+</div>
