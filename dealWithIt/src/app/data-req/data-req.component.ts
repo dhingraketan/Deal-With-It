@@ -7,4 +7,40 @@ import { Component } from '@angular/core';
 })
 export class DataReqComponent {
 
+  title = "How May I Help?";
+  dataAmount!: number | null; // Property to store the user's input
+  notSure: boolean = false; // Property to store whether the user is not sure
+
+  // Method called when the number input changes
+  onInputChange(dataAmount: any) {
+    // You can access the entered number as this.dataAmount
+    if(this.notSure){
+      this.dataAmount = null;
+    } else {
+      this.dataAmount = dataAmount;
+    }
+
+
+    console.log('Data Amount:', this.dataAmount);
+  }
+
+  // Method called when the "Not Sure" checkbox changes
+  onNotSureChange() {
+    // You can access the "Not Sure" state as this.notSure
+    console.log('Not Sure:', this.notSure);
+
+    // If the user selects "Not Sure," you may want to clear the dataAmount
+    if (this.notSure) {
+      this.dataAmount = null;
+    }
+
+    console.log('Data Amount:', this.dataAmount);
+  }
+  
+  goBack(): void {
+  }
+
+  onNext(): void {
+  }
+
 }

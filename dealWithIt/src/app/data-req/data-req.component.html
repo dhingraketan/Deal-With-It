@@ -1,1 +1,15 @@
-<p>data-req works!</p>
+<div class="form-container">
+    <h1>{{ title }}</h1>
+
+    <div>
+        <label for="dataAmount">How much data do you require per month?</label>
+        <input type="number" id="dataAmount" [(ngModel)]="dataAmount" name="dataAmount"
+            (change)="onInputChange(dataAmount)">
+        <input type="checkbox" class="notSure" [(ngModel)]="notSure" name="notSure" (change)="onNotSureChange()">
+        <label for="notSure" class="notSure">Not Sure</label>
+    </div>
+
+    <button class="prevBtn" (click)="goBack()">&#60; Previous</button>
+    <button type="submit" class="nextBtn" (click)="onNext()">Next ></button>
+
+</div>
