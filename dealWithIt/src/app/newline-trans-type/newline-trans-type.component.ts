@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./newline-trans-type.component.css']
 })
 export class NewlineTransTypeComponent {
+  title = "How May I Help?";
+  newLineTransType!: string;
 
+  constructor() { }
+
+  onSubmit(formData: any): void {
+   this.newLineTransType = formData.newLineTransType;
+    console.log(formData);
+  }
+
+  goBack(): void {
+  }
 }
