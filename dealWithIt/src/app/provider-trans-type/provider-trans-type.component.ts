@@ -8,12 +8,12 @@ import { Component } from '@angular/core';
 export class ProviderTransTypeComponent {
 
   title = "How May I Help?";
-  transType!: string;
+  providerTransType!: string;
 
   constructor() { }
 
   onSubmit(formData: any): void {
-   this.transType = formData.transType;
+   this.providerTransType = formData.providerTransType;
     console.log(formData);
   }
 

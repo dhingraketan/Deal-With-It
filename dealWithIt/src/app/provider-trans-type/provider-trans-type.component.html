@@ -1,23 +1,32 @@
-<h3>{{ title }}</h3>
+<div class="container">
+  <h1>{{ title }}</h1>
 
-<div class="form-container">
-  <form #providerInfoForm="ngForm" (ngSubmit)="onSubmit(providerInfoForm.value)">
-    <div class="form-group">
-      <label class="type">Would you Like to:</label>
-      
-      <label class="provider-tile" id="hup">
-        <input type="radio" name="hup" [(ngModel)]="transType" value="hup" required>
-        <img src="assets/hup-logo.png" alt="HUP Logo" class="provider-logo">
-      </label>
+  <!-- show different providers as tiles with their logo in every tile and user should
+only be able to select one tile just like a radio button -->
+  <div class="form-container">
+    <form #providerInfoForm="ngForm" (ngSubmit)="onSubmit(providerInfoForm.value)">
+      <div class="form-group">
 
-      <h3>OR</h3>
+        <h3>Would You Like To:</h3>
 
-      <label class="provider-tile" id="aal">
-        <input type="radio" name="aal" [(ngModel)]="transType" value="aal" required>
-        <img src="assets/aal-logo.png" alt="AAL logo" class="provider-logo">
-      </label>
-    </div>
-    <button class="prevBtn" (click)="goBack()">&#60; Previous</button>
-    <button type="submit" class="nextBtn">Next ></button>
-  </form>
+        <label class="provider-tile" id="noProvider">
+          <input type="radio" name="hup" [(ngModel)]="providerTransType" value="hup" required>
+          <img src="assets/hup-logo.png" alt="HUP logo" class="provider-logo">
+        </label>
+
+        <div class="or">
+          <h3>OR</h3>
+        </div>
+
+        <label class="provider-tile" id="noProvider">
+          <input type="radio" name="aal" [(ngModel)]="providerTransType" value="aal" required>
+          <img src="assets/aal-logo.png" alt="AAL logo" class="provider-logo">
+        </label>
+
+      </div>
+      <button class="prevBtn" (click)="goBack()">&#60; Previous</button>
+      <button type="submit" class="nextBtn">Next ></button>
+    </form>
+  </div>
+
 </div>

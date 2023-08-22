@@ -1,3 +1,5 @@
+
+
 h3 {
   margin-top: 5px;
 }
@@ -73,6 +75,13 @@ input {
   position: relative; /* Add this to make the radio button positioning relative to the tile */
 }
 
+#noProvider{
+  width: 80%;
+  height: 70px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
 .provider-tile:hover,
 .provider-tile input[type="radio"]:checked + .provider-logo {
   border-color: #415599;
@@ -95,17 +104,8 @@ input {
   height: 100%;
 }
 
-#hup{
-  width: 80%;
-  height: 55px;
-  margin-left: 10%;
-  margin-right: 10%;
-}
-
-
-#aal{
-  width: 80%;
-  height: 55px;
-  margin-left: 10%;
-  margin-right: 10%;
+.or {
+  width: 20%;
+  margin-left: 40%;
+  margin-right: 40%;
 }
