@@ -1,1 +1,42 @@
-<p>home-service works!</p>
+<div class="container">
+  <h1>{{ title }}</h1>
+
+  <!-- show different providers as tiles with their logo in every tile and user should
+only be able to select one tile just like a radio button -->
+  <div class="form-container">
+    <form #providerInfoForm="ngForm" (ngSubmit)="onSubmit(providerInfoForm.value)">
+      <div class="form-group">
+
+        <h3>Do You Have Home Services With Any Of These Providers:</h3>
+        <h5>(Eg: Internet, TV or Home Security)</h5>
+
+        <label class="provider-tile" id="provider">
+          <input type="radio" name="telus" [(ngModel)]="homeService" value="telus" required>
+          <img src="assets/telus-logo.png" alt="Telus logo" class="provider-logo">
+        </label>
+
+        <div class="or">
+          <h3>OR</h3>
+        </div>
+
+        <label class="provider-tile" id="provider">
+          <input type="radio" name="shaw" [(ngModel)]="homeService" value="shaw" required>
+          <img src="assets/shaw-logo.png" alt="Shaw logo" class="provider-logo">
+        </label>
+
+        <div class="or">
+          <h3>OR</h3>
+        </div>
+
+        <label class="provider-tile" id="provider">
+          <input type="radio" name="noService" [(ngModel)]="homeService" value="noService" required>
+          <img src="assets/no-service-logo.png" alt="No Service logo" class="provider-logo">
+        </label>
+
+      </div>
+      <button class="prevBtn" (click)="goBack()">&#60; Previous</button>
+      <button type="submit" class="nextBtn">Submit</button>
+    </form>
+  </div>
+
+</div>
