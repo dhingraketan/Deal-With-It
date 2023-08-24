@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormService } from '../form.service';
 
 @Component({
   selector: 'app-cust-info',
@@ -12,9 +13,10 @@ export class CustInfoComponent implements OnInit{
   title = "Welcome!";
   name!: string;
   phone!: number;
+  stepId = 0;
   
 
-  constructor() { }
+  constructor(private formService: FormService) { }
 
   ngOnInit(): void {
   }
@@ -23,7 +25,7 @@ export class CustInfoComponent implements OnInit{
     this.name = formData.name;
     this.phone = formData.phone;
     console.log(formData);
-    this.custInfoEvent.emit(formData);
+    this.formService.navigateToNextStep("null", this.stepId);
 
   }
 

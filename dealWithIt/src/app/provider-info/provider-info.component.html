@@ -3,7 +3,7 @@
 <!-- show different providers as tiles with their logo in every tile and user should
 only be able to select one tile just like a radio button -->
 <div class="form-container">
-  <form #providerInfoForm="ngForm" (ngSubmit)="onSubmit(providerInfoForm.value)">
+  <form #providerInfoForm="ngForm">
     <div class="form-group">
       <label class="type">Post-paid:</label>
 
@@ -76,6 +76,6 @@ only be able to select one tile just like a radio button -->
 
     </div>
     <button class="prevBtn" (click)="goBack()">&#60; Previous</button>
-    <button type="submit" class="nextBtn">Next ></button>
+    <button class="nextBtn" (click)="onSubmit(currentProvider)">Next ></button>
   </form>
 </div>

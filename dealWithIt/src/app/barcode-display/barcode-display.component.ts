@@ -7,7 +7,9 @@ import { Component } from '@angular/core';
 })
 export class BarcodeDisplayComponent {
 
-  barcodeValue: string = '6725151210'; 
+  title = 'Thank You!'
+
+  userId: string = '6725151210'; 
   // Property to store the user's input for generating the barcode
 
 

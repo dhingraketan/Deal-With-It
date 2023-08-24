@@ -1,10 +1,10 @@
 <div class="container">
-  <h1>Thank You!</h1>
+  <h1>{{title}}</h1>
 
   <h3>Please Provide This Barcode to the Associate When Asked:</h3>
 
   <ejs-barcodegenerator style="display: block;" #barcode id="barcode" width="200px" height="150px" mode="SVG"
-    type="Code128" value="6725151210236">
+    type="Code128" value={{userId}}>
   </ejs-barcodegenerator>
 
   <h5>(Please DO NOT Close this Window Or Take a Screenshot of this Barcode)</h5>

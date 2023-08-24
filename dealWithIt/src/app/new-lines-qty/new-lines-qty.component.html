@@ -1,7 +1,7 @@
 <h1>{{ title }}</h1>
 <!-- ask user how many lines the want to get or upgrade, get number input greater than 0-->
 <div class="form-container">
-  <form #newLinesQtyForm="ngForm" (ngSubmit)="onSubmit(newLinesQtyForm.value)">
+  <form #newLinesQtyForm="ngForm">
     <div class="form-group">
       <label for="newLinesQty">How many new lines would you like to get or upgrade today?</label>
       <input
@@ -14,6 +14,6 @@
       >
     </div>
     <button class="prevBtn" (click)="goBack()">&#60; Previous</button>
-    <button type="submit" class="nextBtn">Next ></button>
+    <button class="nextBtn" (click)="onSubmit(newLinesQty)">Next ></button>
   </form>
 </div>
