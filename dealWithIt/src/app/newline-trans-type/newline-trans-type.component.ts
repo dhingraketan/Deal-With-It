@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormService } from '../form.service';
 
 @Component({
   selector: 'app-newline-trans-type',
@@ -8,17 +9,17 @@ import { Component } from '@angular/core';
 export class NewlineTransTypeComponent {
   title = "How May I Help?";
   newLineTransType!: string;
+  stepId = 5;
 
-  constructor() { }
+  constructor(private formService: FormService) { }
 
-  onSubmit(formData: any): void {
-   this.newLineTransType = formData.newLineTransType;
-    console.log(formData);
+  onSubmit(): void {
+    console.log(this.newLineTransType);
+    this.formService.navigateToNextStep(this.newLineTransType, this.stepId);
   }
 
   goBack(): void {
+    this.formService.navigateToPreviousStep();
   }
 
-  onNext(): void {
-  }
 }

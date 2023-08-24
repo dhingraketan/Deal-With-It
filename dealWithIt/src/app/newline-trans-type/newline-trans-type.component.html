@@ -5,14 +5,14 @@
     <!-- show different providers as tiles with their logo in every tile and user should
   only be able to select one tile just like a radio button -->
     <div class="form-container">
-        <form #providerInfoForm="ngForm" (ngSubmit)="onSubmit(providerInfoForm.value)">
+        <form #providerInfoForm="ngForm">
             <div class="form-group">
 
                 <h3>Would You Like To:</h3>
 
                 <label class="provider-tile" id="noProvider">
-                    <input type="radio" name="nac" [(ngModel)]="newLineTransType" value="nac" required>
-                    <img src="assets/phone-logo.png" alt="NAC logo" class="provider-logo">
+                    <input type="radio" name="FIN" [(ngModel)]="newLineTransType" value="FIN" required>
+                    <img src="assets/phone-logo.png" alt="FIN logo" class="provider-logo">
                 </label>
 
                 <div class="or">
@@ -20,13 +20,13 @@
                 </div>
 
                 <label class="provider-tile" id="noProvider">
-                    <input type="radio" name="byod" [(ngModel)]="newLineTransType" value="byod" required>
+                    <input type="radio" name="BYOD" [(ngModel)]="newLineTransType" value="BYOD" required>
                     <img src="assets/plan-logo.png" alt="BYOD logo" class="provider-logo">
                 </label>
 
             </div>
             <button class="prevBtn" (click)="goBack()">&#60; Previous</button>
-            <button type="submit" class="nextBtn" (click)="onNext()">Next ></button>
+            <button type="submit" class="nextBtn" (click)="onSubmit()">Next ></button>
         </form>
     </div>
 </div>

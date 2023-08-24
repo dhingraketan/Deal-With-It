@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormService } from '../form.service';
 
 @Component({
   selector: 'app-provider-trans-type',
@@ -9,15 +10,18 @@ export class ProviderTransTypeComponent {
 
   title = "How May I Help?";
   providerTransType!: string;
+  stepId = 4;
 
-  constructor() { }
+  constructor(private formService: FormService) { }
 
-  onSubmit(formData: any): void {
-   this.providerTransType = formData.providerTransType;
-    console.log(formData);
+  onSubmit(): void {
+   this.providerTransType
+    console.log(this.providerTransType);
+    this.formService.navigateToNextStep(this.providerTransType, this.stepId);
   }
 
   goBack(): void {
+    this.formService.navigateToPreviousStep();
   }
 
 }

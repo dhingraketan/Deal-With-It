@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormService } from '../form.service';
 
 @Component({
   selector: 'app-current-plan-info',
@@ -9,18 +10,19 @@ export class CurrentPlanInfoComponent {
 
   title = "Current Plan Details";
   currentMonthlyCost!: number;
-  currentData!: number; 
+  currentData!: number;
+  stepId = 3;
 
-  constructor() { }
+  constructor(private formService: FormService) { }
 
-  onSubmit(formData: any) {
-    this.currentMonthlyCost = formData.currentMonthlyCost;
-    this.currentData = formData.currentData;
-    console.log("Form submitted");
+  onSubmit() {
+    console.log(this.currentMonthlyCost);
+    console.log(this.currentData);
+    this.formService.navigateToNextStep("null", this.stepId);
   }
 
   goBack() {
-    
+    this.formService.navigateToPreviousStep();
   }
   
 
