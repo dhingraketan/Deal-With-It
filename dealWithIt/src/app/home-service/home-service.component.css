@@ -1,5 +1,10 @@
 h3 {
   margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+h5{
+  margin-top: 0px;
 }
 
 .form-container {
@@ -106,6 +111,6 @@ input {
 }
 
 .or {
-  width: 20%;
+  max-width: fit-content;
   margin-left: 45%;
 }

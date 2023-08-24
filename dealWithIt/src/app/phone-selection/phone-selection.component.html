@@ -1,1 +1,22 @@
-<p>phone-selection works!</p>
+<div class="phone-selection">
+
+  <h1>{{title}}</h1>
+
+  <label class="lbl" for="phoneSelection">Which phone are you interested in?</label>
+  <div class="selection">
+    <select id="phoneSelection" [(ngModel)]="selectedPhone" name="phoneSelection" (change)="onSelectionChange()">
+      <option value="not-sure">Not Sure</option>
+      <optgroup label="Apple Phones">
+        <option *ngFor="let iosDevice of iosDevices" [value]="iosDevice">{{ iosDevice }}</option>
+      </optgroup>
+      <optgroup label="Android Phones">
+        <option *ngFor="let androidDevice of androidDevices" [value]="androidDevice">{{ androidDevice }}</option>
+      </optgroup>
+    </select>
+  </div>
+
+  <button class="prevBtn" (click)="onGoBack()">&#60; Previous</button>
+  <button class="nextBtn" (click)="onNext()">Next ></button>
+
+
+</div>
