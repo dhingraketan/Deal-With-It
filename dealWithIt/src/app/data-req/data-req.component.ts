@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormService } from '../form.service';
 
 @Component({
   selector: 'app-data-req',
@@ -10,6 +11,9 @@ export class DataReqComponent {
   title = "How May I Help?";
   dataAmount!: number | null; // Property to store the user's input
   notSure: boolean = false; // Property to store whether the user is not sure
+  stepId = 7;
+
+  constructor(private formService: FormService) { }
 
   // Method called when the number input changes
   onInputChange(dataAmount: any) {
@@ -36,11 +40,12 @@ export class DataReqComponent {
 
     console.log('Data Amount:', this.dataAmount);
   }
-  
-  goBack(): void {
-  }
-
+ 
   onNext(): void {
+    this.formService.navigateToNextStep('null', this.stepId);
   }
-
+   
+  goBack(): void {
+    this.formService.navigateToPreviousStep();
+  }
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormService } from '../form.service';
 
 @Component({
   selector: 'app-home-service',
@@ -9,15 +10,18 @@ export class HomeServiceComponent {
 
   title = "Last Question!!";
   homeService!: string | null;
+  stepId = 8;
 
-  constructor() { }
+  constructor(private formService: FormService) { }
 
-  onSubmit(formData: any): void {
-   this.homeService = formData.homeService;
-    console.log(formData);
+  onSubmit() {
+    console.log(this.homeService);
+    this.formService.navigateToNextStep('null', this.stepId);
+
   }
 
   goBack(): void {
+    this.formService.navigateToPreviousStep();
   }
 
 }

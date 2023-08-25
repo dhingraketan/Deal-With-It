@@ -4,7 +4,7 @@
   <!-- show different providers as tiles with their logo in every tile and user should
 only be able to select one tile just like a radio button -->
   <div class="form-container">
-    <form #providerInfoForm="ngForm" (ngSubmit)="onSubmit(providerInfoForm.value)">
+    <form #providerInfoForm="ngForm">
       <div class="form-group">
 
         <h3>Do You Have Home Services With Any Of These Providers:</h3>
@@ -35,7 +35,7 @@ only be able to select one tile just like a radio button -->
 
       </div>
       <button class="prevBtn" (click)="goBack()">&#60; Previous</button>
-      <button type="submit" class="nextBtn">Submit</button>
+      <button class="nextBtn" (click)="onSubmit()">Submit</button>
     </form>
   </div>
 
