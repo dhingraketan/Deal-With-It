@@ -6,28 +6,25 @@ import { FormService } from '../form.service';
   templateUrl: './cust-info.component.html',
   styleUrls: ['./cust-info.component.css']
 })
-export class CustInfoComponent implements OnInit{
+export class CustInfoComponent implements OnInit {
 
   @Output() custInfoEvent: EventEmitter<any> = new EventEmitter();
 
   title = "Welcome!";
-  name!: string;
-  phone!: number;
+  name: string = '';
+  phone: string = '';
   stepId = 0;
-  
 
   constructor(private formService: FormService) { }
 
   ngOnInit(): void {
   }
 
-  onSubmit(formData: any): void {
-    this.name = formData.name;
-    this.phone = formData.phone;
-    console.log(formData);
-    this.formService.navigateToNextStep("null", this.stepId);
-
+  onSubmit(form: any): void {
+    if (form.valid) {
+      this.formService.navigateToNextStep("null", this.stepId);
+    } else {
+      // Form is invalid, do something (e.g., show an error message).
+    }
   }
-
-
 }

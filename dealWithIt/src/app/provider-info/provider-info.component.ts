@@ -9,24 +9,22 @@ import { FormService } from '../form.service';
 export class ProviderInfoComponent {
 
   title = "Who is Your Current Provider:";
-  currentProvider!: string;
+  provider: string = '';
   stepId = 2;
 
   constructor(private formService: FormService) { }
 
-  onSubmit(formData: any): void {
-   this.currentProvider = formData;
-    if(this.currentProvider == "noProvider"){
-      this.currentProvider = "null";
+  onSubmit(): void {
+    if (this.provider === 'noProvider') {
+      this.provider = 'null';
     }
 
-    console.log(this.currentProvider);
+    console.log(this.provider);
 
-    this.formService.navigateToNextStep(this.currentProvider, this.stepId);
+    this.formService.navigateToNextStep(this.provider, this.stepId);
   }
 
   goBack(): void {
     this.formService.navigateToPreviousStep();
   }
-
 }

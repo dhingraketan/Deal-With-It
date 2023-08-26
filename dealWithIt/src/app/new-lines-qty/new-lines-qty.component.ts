@@ -9,20 +9,18 @@ import { FormService } from '../form.service';
 export class NewLinesQtyComponent {
 
   title = "How May I Help You?"
-  newLinesQty!: number;
+  newLinesQty: number | undefined;
   stepId = 1;
 
   constructor(private formService: FormService) { }
 
-  onSubmit(formData: any): void {
-    this.newLinesQty = formData.newLinesQty;
-    console.log(formData);
-    this.formService.navigateToNextStep("null", this.stepId);
-
+  onSubmit(form: any): void {
+    if (form.valid) {
+      this.formService.navigateToNextStep("null", this.stepId);
+    }
   }
 
   goBack(): void {
     this.formService.navigateToPreviousStep();
   }
-
 }

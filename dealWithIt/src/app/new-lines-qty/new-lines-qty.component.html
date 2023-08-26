@@ -1,7 +1,7 @@
 <h1>{{ title }}</h1>
-<!-- ask user how many lines the want to get or upgrade, get number input greater than 0-->
+<!-- ask user how many lines they want to get or upgrade, get number input greater than 0-->
 <div class="form-container">
-  <form #newLinesQtyForm="ngForm">
+  <form #newLinesQtyForm="ngForm" (ngSubmit)="onSubmit(newLinesQtyForm)" novalidate>
     <div class="form-group">
       <label for="newLinesQty">How many new lines would you like to get or upgrade today?</label>
       <input
@@ -11,9 +11,14 @@
         name="newLinesQty"
         required
         [(ngModel)]="newLinesQty"
+        #newLinesQtyInput="ngModel"
+        min="1"
       >
+      <div *ngIf="newLinesQtyInput.invalid && (newLinesQtyInput.dirty || newLinesQtyInput.touched)" class="text-danger">
+        *Quantity is required and must be greater than or equal to 1.
+      </div>
     </div>
     <button class="prevBtn" (click)="goBack()">&#60; Previous</button>
-    <button class="nextBtn" (click)="onSubmit(newLinesQty)">Next ></button>
+    <button type="submit" class="nextBtn" [disabled]="newLinesQtyForm.invalid">Next ></button>
   </form>
 </div>
