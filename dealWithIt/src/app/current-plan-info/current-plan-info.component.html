@@ -1,17 +1,26 @@
 <h1>{{title}}</h1>
 <!-- get name and phone number from user -->
 <div class="form-container">
-  <form #custInfoForm="ngForm">
+  <form #currentPlanForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
     <div class="form-group">
-      <label for="currentData">Monthly Cost:</label>
-      <input type="text" class="form-control" id="currentMonthlyCost" name="currentMonthlyCost" required
-        [(ngModel)]="currentMonthlyCost">
+      <label for="currentMonthlyCost">Monthly Cost:</label>
+      <input type="number" class="form-control" id="currentMonthlyCost" name="currentMonthlyCost"
+        required min="0" [(ngModel)]="currentMonthlyCost">
+      <div *ngIf="currentPlanForm.controls['currentMonthlyCost'].invalid && (currentPlanForm.dirty || currentPlanForm.touched)"
+        class="text-danger">
+        Monthly cost is required and must be greater than or equal to 0.
+      </div>
     </div>
     <div class="form-group">
       <label for="currentData">Data/Month (GB):</label>
-      <input type="text" class="form-control" id="currentData" name="currentData" required [(ngModel)]="currentData">
+      <input type="number" class="form-control" id="currentData" name="currentData" required min="0"
+        [(ngModel)]="currentData">
+      <div *ngIf="currentPlanForm.controls['currentData'].invalid && (currentPlanForm.dirty || currentPlanForm.touched)"
+        class="text-danger">
+        Data/month is required and must be greater than or equal to 0.
+      </div>
     </div>
-    <button class="nextBtn" (click)="onSubmit()">Next ></button>
+    <button class="nextBtn" [disabled]="currentPlanForm.invalid" type="submit">Next ></button>
     <button class="prevBtn" (click)="goBack()">&#60; Previous</button>
 
   </form>

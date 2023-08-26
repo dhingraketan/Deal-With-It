@@ -73,7 +73,7 @@
         <img src="assets/no-provider-logo.png" alt="No Provider logo" class="provider-logo">
       </label>
 
-      <div *ngIf="providerInfoForm.controls['provider'].invalid && (providerInfoForm.dirty || providerInfoForm.touched)" class="text-danger">
+      <div *ngIf="providerInfoForm.controls['provider'] == undefined && (providerInfoForm.dirty || providerInfoForm.touched)" class="text-danger">
         Please select a provider.
       </div>
 

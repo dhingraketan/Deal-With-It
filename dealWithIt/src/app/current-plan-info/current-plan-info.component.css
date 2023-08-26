@@ -54,3 +54,11 @@ input {
 .form-container {
   position: relative; /* Set the container as the reference for absolute positioning */
 }
+
+.text-danger{
+  color: red;
+  font-weight: lighter;
+  font-size: 10px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}

@@ -9,21 +9,22 @@ import { FormService } from '../form.service';
 export class CurrentPlanInfoComponent {
 
   title = "Current Plan Details";
-  currentMonthlyCost!: number;
-  currentData!: number;
+  currentMonthlyCost: number | undefined;
+  currentData: number | undefined;
   stepId = 3;
 
   constructor(private formService: FormService) { }
 
   onSubmit() {
-    console.log(this.currentMonthlyCost);
-    console.log(this.currentData);
-    this.formService.navigateToNextStep("null", this.stepId);
+    if (this.currentMonthlyCost !== undefined && this.currentData !== undefined) {
+      console.log(this.currentMonthlyCost);
+      console.log(this.currentData);
+      this.formService.navigateToNextStep("null", this.stepId);
+    }
   }
 
   goBack() {
     this.formService.navigateToPreviousStep();
   }
-  
 
 }
