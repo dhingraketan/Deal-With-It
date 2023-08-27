@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormService } from '../form.service';
+import { NgForm } from '@angular/forms'; // Import NgForm
 
 @Component({
   selector: 'app-phone-selection',
@@ -10,11 +11,13 @@ export class PhoneSelectionComponent {
 
   stepId = 6;
   title = 'Phone Selection'; // Title for the page
-  selectedPhone!: string; // Property to store the selected phone
-  iosDevices: string[] = 
-  ['iPhone 14', 'iPhone 14 Plus', 'iPhone 14 Pro', 'iPhone 14 Pro max', 'iPhone 11', 'iPhone 12', 'iPhone 13']; // List of Apple phones
-  androidDevices: string[] = 
-  ['Samsung Galaxy S21', 'Google Pixel 7', 'Samsung Galaxy S23', 'Samsung Galaxy S22']; // List of Android phones
+  selectedPhone: string = ''; // Property to store the selected phone
+  iosDevices: string[] = [
+    'iPhone 14', 'iPhone 14 Plus', 'iPhone 14 Pro', 'iPhone 14 Pro max', 'iPhone 11', 'iPhone 12', 'iPhone 13'
+  ]; // List of Apple phones
+  androidDevices: string[] = [
+    'Samsung Galaxy S21', 'Google Pixel 7', 'Samsung Galaxy S23', 'Samsung Galaxy S22'
+  ]; // List of Android phones
 
   constructor(private formService: FormService) { }
 
@@ -22,22 +25,20 @@ export class PhoneSelectionComponent {
   onSelectionChange() {
     // You can access the selected phone as this.selectedPhone
 
-    
     // If the user selects "Not Sure," you may want to clear the selectedPhone
     if (this.selectedPhone === 'not-sure') {
-      this.selectedPhone = "null";
+      this.selectedPhone = 'null';
     }
 
     console.log('Selected Phone:', this.selectedPhone);
   }
 
-  onNext(){
+  onNext() {
     console.log(this.selectedPhone);
     this.formService.navigateToNextStep(this.selectedPhone, this.stepId);
-
   }
 
-  onGoBack(){
+  onGoBack() {
     this.formService.navigateToPreviousStep();
   }
 }

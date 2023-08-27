@@ -9,7 +9,7 @@ import { FormService } from '../form.service';
 export class HomeServiceComponent {
 
   title = "Last Question!!";
-  homeService!: string | null;
+  homeService: string | null = null;
   stepId = 8;
 
   constructor(private formService: FormService) { }
@@ -17,11 +17,9 @@ export class HomeServiceComponent {
   onSubmit() {
     console.log(this.homeService);
     this.formService.navigateToNextStep('null', this.stepId);
-
   }
 
   goBack(): void {
     this.formService.navigateToPreviousStep();
   }
-
 }

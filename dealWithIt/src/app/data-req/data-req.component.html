@@ -1,15 +1,19 @@
 <div class="form-container">
     <h1>{{ title }}</h1>
-
+  
     <div>
-        <label for="dataAmount">How much data do you require per month?</label>
-        <input type="number" id="dataAmount" [(ngModel)]="dataAmount" name="dataAmount"
-            (change)="onInputChange(dataAmount)">
-        <input type="checkbox" class="notSure" [(ngModel)]="notSure" name="notSure" (change)="onNotSureChange()">
-        <label for="notSure" class="notSure">Not Sure</label>
+      <label for="dataAmount">How much data (in GB) do you require per month?</label>
+      <input type="number" id="dataAmount" [(ngModel)]="dataAmount" name="dataAmount"
+        (change)="onInputChange()" required [disabled]="notSure">
+      <input type="checkbox" class="notSure" [(ngModel)]="notSure" name="notSure" (change)="onNotSureChange()">
+      <label for="notSure" class="notSure">Not Sure</label>
     </div>
-
+  
+    <div *ngIf="!notSure && dataAmount === null" class="text-danger">
+      Please enter a valid data amount or select "Not Sure."
+    </div>
+  
     <button class="prevBtn" (click)="goBack()">&#60; Previous</button>
-    <button class="nextBtn" (click)="onNext()">Next ></button>
-
-</div>
+    <button class="nextBtn" (click)="onNext()" [disabled]="!notSure && dataAmount === null">Next ></button>
+  </div>
+  
