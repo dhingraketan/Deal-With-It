@@ -8,13 +8,18 @@ import { FormService } from '../form.service';
 })
 export class NewlineTransTypeComponent {
   title = "How May I Help?";
-  newLineTransType!: string;
+  newLineTransType!: string | null;
   stepId = 5;
 
   constructor(private formService: FormService) { }
 
   onSubmit(): void {
+    
     console.log(this.newLineTransType);
+    var nLTransType = {
+      type: this.newLineTransType
+    }
+    this.formService.saveData(nLTransType, this.stepId);
     this.formService.navigateToNextStep(this.newLineTransType, this.stepId);
   }
 

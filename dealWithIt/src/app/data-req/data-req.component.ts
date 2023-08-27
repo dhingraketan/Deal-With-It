@@ -35,7 +35,11 @@ export class DataReqComponent {
   }
  
   onNext(): void {
-    this.formService.navigateToNextStep('null', this.stepId);
+    var dataReq = {
+      dataChoice: this.dataAmount
+    }
+    this.formService.saveData(dataReq, this.stepId);
+    this.formService.navigateToNextStep(null, this.stepId);
   }
    
   goBack(): void {

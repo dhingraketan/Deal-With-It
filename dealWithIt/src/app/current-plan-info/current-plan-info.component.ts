@@ -19,6 +19,12 @@ export class CurrentPlanInfoComponent {
     if (this.currentMonthlyCost !== undefined && this.currentData !== undefined) {
       console.log(this.currentMonthlyCost);
       console.log(this.currentData);
+
+      var currentPlanInfo = {
+        monthlyBill: this.currentMonthlyCost,
+        currentData: this.currentData
+      }
+      this.formService.saveData(currentPlanInfo, this.stepId);
       this.formService.navigateToNextStep("null", this.stepId);
     }
   }

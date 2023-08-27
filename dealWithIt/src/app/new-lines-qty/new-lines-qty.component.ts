@@ -9,13 +9,17 @@ import { FormService } from '../form.service';
 export class NewLinesQtyComponent {
 
   title = "How May I Help You?"
-  newLinesQty: number | undefined;
+  numLines: number | undefined;
   stepId = 1;
 
   constructor(private formService: FormService) { }
 
   onSubmit(form: any): void {
     if (form.valid) {
+      var newLinesQty = {
+        numLines: this.numLines
+      }
+      this.formService.saveData(newLinesQty, this.stepId);
       this.formService.navigateToNextStep("null", this.stepId);
     }
   }

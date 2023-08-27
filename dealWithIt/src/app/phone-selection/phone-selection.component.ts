@@ -11,7 +11,7 @@ export class PhoneSelectionComponent {
 
   stepId = 6;
   title = 'Phone Selection'; // Title for the page
-  selectedPhone: string = ''; // Property to store the selected phone
+  selectedPhone: string | null = null; // Property to store the selected phone
   iosDevices: string[] = [
     'iPhone 14', 'iPhone 14 Plus', 'iPhone 14 Pro', 'iPhone 14 Pro max', 'iPhone 11', 'iPhone 12', 'iPhone 13'
   ]; // List of Apple phones
@@ -27,14 +27,18 @@ export class PhoneSelectionComponent {
 
     // If the user selects "Not Sure," you may want to clear the selectedPhone
     if (this.selectedPhone === 'not-sure') {
-      this.selectedPhone = 'null';
+      this.selectedPhone = null;
     }
 
     console.log('Selected Phone:', this.selectedPhone);
   }
 
   onNext() {
-    console.log(this.selectedPhone);
+    var phoneSelection = {
+      phoneChoice: this.selectedPhone
+    }
+    
+    this.formService.saveData(phoneSelection, this.stepId);
     this.formService.navigateToNextStep(this.selectedPhone, this.stepId);
   }
 

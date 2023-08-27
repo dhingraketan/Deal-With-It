@@ -15,7 +15,14 @@ export class HomeServiceComponent {
   constructor(private formService: FormService) { }
 
   onSubmit() {
-    console.log(this.homeService);
+    if (this.homeService === 'noService') {
+      this.homeService = null;
+    }
+
+    var homeService = {
+      homeService: this.homeService
+    }
+    this.formService.saveData(homeService, this.stepId);
     this.formService.navigateToNextStep('null', this.stepId);
   }
 

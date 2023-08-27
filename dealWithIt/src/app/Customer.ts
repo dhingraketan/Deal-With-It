@@ -1,15 +1,12 @@
-import { TransType } from "./TransType"
-
 export class Customer{
-  id!: number
   name!: string
   phoneNum!: number
-  currentProvider!: string
-  monthlyBill!: number
-  currentData!: number
+  currentProvider!: string | null
+  monthlyBill!: number | null
+  currentData!: number | null
   numLines!: number
-  transType!: TransType
-  phoneChoice!: string
-  dataChoice!: number
-  homeService!: string
+  transType!: string
+  phoneChoice!: string | null
+  dataChoice!: number | null
+  homeService!: string | null
 }

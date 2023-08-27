@@ -15,8 +15,10 @@ export class ProviderTransTypeComponent {
   constructor(private formService: FormService) { }
 
   onSubmit(): void {
-   this.providerTransType
-    console.log(this.providerTransType);
+    var providerTransType = {
+      providerTransType: this.providerTransType
+    }
+    this.formService.saveData(providerTransType, this.stepId);
     this.formService.navigateToNextStep(this.providerTransType, this.stepId);
   }
 

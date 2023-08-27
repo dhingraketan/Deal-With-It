@@ -2,6 +2,7 @@
 
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { Customer } from './Customer';
 
 @Injectable({
   providedIn: 'root',
@@ -14,6 +15,22 @@ export class FormService {
     ];
   private path: number[] = [];
 
+  private customer: Customer = {
+    name: "",
+    phoneNum: 0,
+    currentProvider: null,
+    monthlyBill: null,
+    currentData: null,
+    numLines: 0,
+    transType: "",
+    phoneChoice: null,
+    dataChoice: null,
+    homeService: null
+  }
+
+  private providerTransType: string | null = null;
+  private newlineTransType: string | null = null;
+
   constructor(private router: Router) { }
 
   getParentStep(): number | undefined {
@@ -25,7 +42,7 @@ export class FormService {
     this.router.navigate([this.steps[step]]);
   }
 
-  navigateToNextStep(userInput: string, currentStepIndex: number): void {
+  navigateToNextStep(userInput: string | null, currentStepIndex: number): void {
     if (currentStepIndex == 0 || currentStepIndex == 1 || currentStepIndex == 3
       || currentStepIndex == 6 || currentStepIndex == 7 || currentStepIndex == 8) {
       this.path.push(currentStepIndex);
@@ -33,7 +50,7 @@ export class FormService {
       this.router.navigate([this.steps[currentStepIndex]]);
 
     } else if (currentStepIndex == 2) {
-      if (userInput == "null") {
+      if (userInput == null) {
         this.path.push(currentStepIndex);
         currentStepIndex = 5;
         this.router.navigate([this.steps[currentStepIndex]]);
@@ -77,6 +94,60 @@ export class FormService {
       this.router.navigate([this.steps[parent]]);
     } else {
       console.error('Invalid parent step or undefined parent.');
+    }
+  }
+
+  saveData(data: any, stepId: number): void {
+
+    if (stepId == 0) {
+      this.customer.name = data.name;
+      this.customer.phoneNum = data.phone;
+
+    } else if (stepId == 1) {
+      this.customer.numLines = data.numLines;
+
+    } else if (stepId == 2) {
+      this.customer.currentProvider = data.currentProvider;
+
+    } else if (stepId == 3) {
+      this.customer.monthlyBill = data.monthlyBill;
+      this.customer.currentData = data.currentData;
+
+    } else if (stepId == 4) {
+      this.providerTransType = data.providerTransType;
+
+    } else if (stepId == 5) {
+      this.newlineTransType = data.type;
+    } else if (stepId == 6) {
+      this.customer.phoneChoice = data.phoneChoice;
+
+    } else if (stepId == 7) {
+      this.customer.dataChoice = data.dataChoice;
+
+    } else if (stepId == 8) {
+      this.customer.homeService = data.homeService;
+
+      if (this.providerTransType == null) {
+      
+        if (this.newlineTransType == "FIN") {
+          this.customer.transType = "NAC_FIN";
+
+        } else if (this.newlineTransType == "BYOD") {
+          this.customer.transType = "NAC_BYOD";
+        }
+      } else if (this.providerTransType == "HUP") {
+        this.customer.transType = "HUP";
+
+      } else if (this.providerTransType == "AAL") {
+        if (this.newlineTransType == "FIN") {
+          this.customer.transType = "AAL_FIN";
+
+        } else if (this.newlineTransType == "BYOD") {
+          this.customer.transType = "AAL_BYOD";
+        }
+      }
+
+      console.log(this.customer);
     }
   }
 }

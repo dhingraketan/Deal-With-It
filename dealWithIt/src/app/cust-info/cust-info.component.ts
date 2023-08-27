@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormService } from '../form.service';
 
 @Component({
@@ -7,8 +7,6 @@ import { FormService } from '../form.service';
   styleUrls: ['./cust-info.component.css']
 })
 export class CustInfoComponent implements OnInit {
-
-  @Output() custInfoEvent: EventEmitter<any> = new EventEmitter();
 
   title = "Welcome!";
   name: string = '';
@@ -22,9 +20,13 @@ export class CustInfoComponent implements OnInit {
 
   onSubmit(form: any): void {
     if (form.valid) {
+      var custInfo = {
+        name: this.name,
+        phone: this.phone
+      }
+      
+      this.formService.saveData(custInfo, this.stepId);
       this.formService.navigateToNextStep("null", this.stepId);
-    } else {
-      // Form is invalid, do something (e.g., show an error message).
     }
   }
 }
