@@ -4,8 +4,16 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+var mongoose  = require('mongoose');
+mongoose.connect('mongodb+srv://dhingraketan:1234@maincluster.5r9bj70.mongodb.net/?retryWrites=true&w=majority', {useNewUrlParser: true})
+.then(() => console.log('Connected to MongoDB...'))
+.catch(err => console.error('Could not connect to MongoDB...'));
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var customersRouter = require('./routes/customers');
+var phonesRouter = require('./routes/phones');
+var repsRouter = require('./routes/reps');
 
 var app = express();
 
