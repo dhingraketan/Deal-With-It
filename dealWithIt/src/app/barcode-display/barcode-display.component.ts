@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormService } from '../form.service';
 
 @Component({
   selector: 'app-barcode-display',
@@ -7,9 +8,11 @@ import { Component } from '@angular/core';
 })
 export class BarcodeDisplayComponent {
 
+  constructor(private formService: FormService) { }
+
   title = 'Thank You!'
 
-  userId: string = '6725151210'; 
+  userId: string = this.formService.getID(); 
   // Property to store the user's input for generating the barcode
 
 

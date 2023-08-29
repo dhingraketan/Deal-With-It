@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { BarcodeGeneratorAllModule,QRCodeGeneratorAllModule,DataMatrixGeneratorAllModule } from '@syncfusion/ej2-angular-barcode-generator';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -40,7 +41,8 @@ import { BarcodeDisplayComponent } from './barcode-display/barcode-display.compo
     FormsModule,
     BarcodeGeneratorAllModule,
     QRCodeGeneratorAllModule,
-    DataMatrixGeneratorAllModule
+    DataMatrixGeneratorAllModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

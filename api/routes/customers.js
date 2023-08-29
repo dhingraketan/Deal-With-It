@@ -5,7 +5,6 @@ const { v4: uuidv4 } = require('uuid');
 
 
 const customerModel = require('../models/customers.model');
-const { response } = require('../app');
 
 router.get('/getCustomer/:userID', asyncHandler(
     async (req, res) => {
@@ -15,7 +14,7 @@ router.get('/getCustomer/:userID', asyncHandler(
     }
 ))
 
-router.post('/addCustomer', async (req, res) => {
+router.post('/add', async (req, res) => {
     const { name, phoneNum, currentProvider, monthlyBill, currentData, numLines, transType, phoneChoice, dataChoice, homeService } = req.body;
     const userID = generateUniqueId(10);
 
@@ -37,7 +36,7 @@ router.post('/addCustomer', async (req, res) => {
         const response = await customerModel.create(newCustomer);
 
         console.log('Customer added successfully: ', response);
-        res.status(200).send(userID);
+        res.status(200).json({ userID: userID });
 
     } catch (error) {
 

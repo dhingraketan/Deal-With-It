@@ -30,6 +30,7 @@ export class FormService {
 
   private providerTransType: string | null = null;
   private newlineTransType: string | null = null;
+  private userID!: string;
 
   constructor(private router: Router) { }
 
@@ -97,7 +98,7 @@ export class FormService {
     }
   }
 
-  saveData(data: any, stepId: number): void {
+  saveData(data: any, stepId: number): void | Customer {
 
     if (stepId == 0) {
       this.customer.name = data.name;
@@ -146,8 +147,20 @@ export class FormService {
           this.customer.transType = "AAL_BYOD";
         }
       }
-
-      console.log(this.customer);
     }
   }
+
+  getCustomer(): Customer {
+    return this.customer;
+  }
+
+  saveID(userID: string): void {
+    this.userID = userID;
+    console.log(this.userID);
+  }
+
+  getID(): string {
+    return this.userID;
+  }
+
 }
