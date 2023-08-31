@@ -9,8 +9,22 @@ const customerModel = require('../models/customers.model');
 router.get('/getCustomer/:userID', asyncHandler(
     async (req, res) => {
         const userID = req.params.userID;
-        const user = await customerModel.findOne({ userID: userID });
-        res.status(200).send(user);
+        const user = await customerModel.findOne({ userID: userID })
+        .then((user) => {
+            if (!user) {
+                return res.status(404).send({
+                    message: "Customer not found with id " + userID
+                });
+            } else {
+            res.status(200).send(user);
+            }
+        })
+        .catch((err) => {
+            return res.status(500).send({
+                message: "Error retrieving customer with id " + userID
+            });
+        });
+
     }
 ))
 

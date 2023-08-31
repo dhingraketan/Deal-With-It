@@ -1,0 +1,19 @@
+<div>
+  <h1>{{title}}</h1>
+
+  <div *ngIf="!customer">
+    <label for="customerId">Barcode ID:</label>
+    <input type="text" id="customerId" [(ngModel)]="customerId" required>
+    <button class="info" (click)="getCustomer()">Get Info</button>
+  </div>
+
+  <div *ngIf="customer">
+    <p>Name: {{ customer.name }}</p>
+    <p>Phone Number: {{ customer.phoneNum }}</p>
+    <div *ngIf="customer.currentProvider">
+      <p>Current Provider: {{ customer.currentProvider }}</p>
+    </div>
+    <button class="info" (click)="goBack()">Back</button>
+    <!-- Add more fields as needed -->
+  </div>
+</div>

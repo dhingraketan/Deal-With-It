@@ -98,6 +98,10 @@ export class FormService {
     }
   }
 
+  navigateToRepZone(): void {
+    this.router.navigate(['customer-summary']);
+  }
+
   saveData(data: any, stepId: number): void | Customer {
 
     if (stepId == 0) {

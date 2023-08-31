@@ -10,6 +10,7 @@ import { PhoneSelectionComponent } from './phone-selection/phone-selection.compo
 import { DataReqComponent } from './data-req/data-req.component';
 import { HomeServiceComponent } from './home-service/home-service.component';
 import { BarcodeDisplayComponent } from './barcode-display/barcode-display.component';
+import { CustomerSummaryComponent } from './customer-summary/customer-summary.component';
 
 
 const routes: Routes = [
@@ -22,7 +23,8 @@ const routes: Routes = [
   { path: 'phone-selection', component: PhoneSelectionComponent },
   { path: 'data-req', component: DataReqComponent },
   { path: 'home-service', component: HomeServiceComponent },
-  { path: 'barcode-display', component: BarcodeDisplayComponent }
+  { path: 'barcode-display', component: BarcodeDisplayComponent },
+  { path: 'customer-summary', component: CustomerSummaryComponent }
 ];
 
 @NgModule({

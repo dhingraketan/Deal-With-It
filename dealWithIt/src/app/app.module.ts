@@ -17,6 +17,7 @@ import { PhoneSelectionComponent } from './phone-selection/phone-selection.compo
 import { DataReqComponent } from './data-req/data-req.component';
 import { HomeServiceComponent } from './home-service/home-service.component';
 import { BarcodeDisplayComponent } from './barcode-display/barcode-display.component';
+import { CustomerSummaryComponent } from './customer-summary/customer-summary.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { BarcodeDisplayComponent } from './barcode-display/barcode-display.compo
     PhoneSelectionComponent,
     DataReqComponent,
     HomeServiceComponent,
-    BarcodeDisplayComponent
+    BarcodeDisplayComponent,
+    CustomerSummaryComponent
   ],
   imports: [
     BrowserModule,
