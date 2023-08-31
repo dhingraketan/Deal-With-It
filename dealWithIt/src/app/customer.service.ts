@@ -19,4 +19,14 @@ export class CustomerService {
     let url = environment.CUSTOMER_BASE_URL + environment.CUSTOMER.GET_CUSTOMER + '/' + id;
     return this.httpClient.get(url);
   }
+
+  getAndroidPhones() {
+    let url = environment.PHONE_BASE_URL + environment.PHONE.GET_ANDROID_PHONE;
+    return this.httpClient.get(url);
+  }
+
+  getIosPhones() {
+    let url = environment.PHONE_BASE_URL + environment.PHONE.GET_IOS_PHONE;
+    return this.httpClient.get(url);
+  }
 }

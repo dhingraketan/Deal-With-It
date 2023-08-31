@@ -1,25 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormService } from '../form.service';
 import { NgForm } from '@angular/forms'; // Import NgForm
+import { CustomerService } from '../customer.service';
 
 @Component({
   selector: 'app-phone-selection',
   templateUrl: './phone-selection.component.html',
   styleUrls: ['./phone-selection.component.css']
 })
-export class PhoneSelectionComponent {
+export class PhoneSelectionComponent implements OnInit{
 
   stepId = 6;
   title = 'Phone Selection'; // Title for the page
   selectedPhone: string | null = null; // Property to store the selected phone
-  iosDevices: string[] = [
-    'iPhone 14', 'iPhone 14 Plus', 'iPhone 14 Pro', 'iPhone 14 Pro max', 'iPhone 11', 'iPhone 12', 'iPhone 13'
-  ]; // List of Apple phones
-  androidDevices: string[] = [
-    'Samsung Galaxy S21', 'Google Pixel 7', 'Samsung Galaxy S23', 'Samsung Galaxy S22'
-  ]; // List of Android phones
+  iosDevices: string[] = [ ]; 
+  androidDevices: string[] = []; 
 
-  constructor(private formService: FormService) { }
+  constructor(private formService: FormService, private customerService: CustomerService) { }
+
+  ngOnInit(): void {
+    this.customerService.getIosPhones().subscribe((data: any) => {
+      this.iosDevices = data;
+    });
+
+    this.customerService.getAndroidPhones().subscribe((data: any) => {
+      this.androidDevices = data;
+    });
+  }
 
   // Method called when the phone selection changes
   onSelectionChange() {
