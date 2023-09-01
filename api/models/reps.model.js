@@ -4,7 +4,7 @@ const repSchema = mongoose.Schema({
 
   Username: String,
   password: String,
-  storeNum: number,
+  storeNum: Number,
 });
 
 const repModel = mongoose.model('Reps', repSchema);

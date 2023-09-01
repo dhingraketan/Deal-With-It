@@ -102,6 +102,10 @@ export class FormService {
     this.router.navigate(['customer-summary']);
   }
 
+  navigateToLogin(): void {
+    this.router.navigate(['login']);
+  }
+
   saveData(data: any, stepId: number): void | Customer {
 
     if (stepId == 0) {
