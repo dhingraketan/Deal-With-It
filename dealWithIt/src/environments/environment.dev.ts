@@ -13,4 +13,10 @@ export const environment = {
     GET_ANDROID_PHONE: 'getAndroidPhones',
     GET_IOS_PHONE: 'getIosPhones'
   },
+
+  REP_BASE_URL: 'http://192.168.1.93:3000/reps/',
+  REP: {
+    REP_LOGIN: 'login',
+    REP_REGISTER: 'register'
+  }
 };
