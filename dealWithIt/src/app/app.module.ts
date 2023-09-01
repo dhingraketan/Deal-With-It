@@ -18,6 +18,7 @@ import { DataReqComponent } from './data-req/data-req.component';
 import { HomeServiceComponent } from './home-service/home-service.component';
 import { BarcodeDisplayComponent } from './barcode-display/barcode-display.component';
 import { CustomerSummaryComponent } from './customer-summary/customer-summary.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { CustomerSummaryComponent } from './customer-summary/customer-summary.co
     DataReqComponent,
     HomeServiceComponent,
     BarcodeDisplayComponent,
-    CustomerSummaryComponent
+    CustomerSummaryComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

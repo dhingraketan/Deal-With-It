@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 
 const repSchema = mongoose.Schema({
 
-  name: String,
-  userID: String,
+  Username: String,
   password: String,
+  storeNum: number,
 });
 
 const repModel = mongoose.model('Reps', repSchema);
