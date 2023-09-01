@@ -7,13 +7,70 @@
     <button class="info" (click)="getCustomer()">Get Info</button>
   </div>
 
-  <div *ngIf="customer">
-    <p>Name: {{ customer.name }}</p>
-    <p>Phone Number: {{ customer.phoneNum }}</p>
-    <div *ngIf="customer.currentProvider">
-      <p>Current Provider: {{ customer.currentProvider }}</p>
+  <div class="customer" *ngIf="customer">
+
+    <h2>{{ customer.name }} | {{ customer.phoneNum }}</h2>
+
+    <div class="cust-container">
+
+      <div *ngIf="customer.currentProvider">
+
+        <div class="field">
+          <div class="summary" id="label">Current Provider: </div>
+          <div class="summary" id="value"> {{ customer.currentProvider }}</div>
+        </div>
+
+        <div class="field">
+          <div class="summary" id="label">Current Monthly Bill: </div>
+          <div class="summary" id="value"> ${{ customer.monthlyBill }}</div>
+        </div>
+
+        <div class="field">
+          <div class="summary" id="label">Current Data/Month: </div>
+          <div class="summary" id="value">{{ customer.currentData }}GB</div>
+        </div>
+
+      </div>
+
+      <div class="field" *ngIf="!customer.currentProvider">
+        <div class="summary" id="label">Current Provider: </div>
+        <div class="summary" id="value">N/A</div>
+      </div>
+
+      <div class="field">
+        <div class="summary" id="label">Home Servide Provider: </div>
+        <div class="summary" id="value" *ngIf="!customer.homeService">N/A</div>
+        <div class="summary" id="value" *ngIf="customer.homeService">{{ customer.homeService }}</div>
+      </div>
+
+      <div class="line"></div>
+
+      <div class="field">
+        <div class="summary" id="label">Here For: </div>
+        <div class="summary" id="value">{{ this.transTypeDisplay }}</div>
+      </div>
+
+      <div class="field" *ngIf="customer.transType == 'HUP' || customer.transType == 'NAC_FIN' || customer.transType == 'AAL_FIN'">
+        <div class="summary" id="label">Phone Choice: </div>
+        <div class="summary" id="value" *ngIf="customer.phoneChoice">{{ customer.phoneChoice }}</div>
+        <div class="summary" id="value" *ngIf="!customer.phoneChoice">Not Sure</div>
+      </div>
+
+      <div class="field">
+        <div class="summary" id="label">Data Preference: </div>
+        <div class="summary" id="value" *ngIf="customer.dataChoice">{{ customer.dataChoice }}GB/Month</div>
+        <div class="summary" id="value" *ngIf="!customer.phoneChoice">Not Sure</div>
+      </div>
+
+      <div class="field">
+        <div class="summary" id="label">Num Lines: </div>
+        <div class="summary" id="value">{{ customer.numLines }}</div>
+      </div>
+
     </div>
-    <button class="info" (click)="goBack()">Back</button>
-    <!-- Add more fields as needed -->
+
   </div>
+
+  <button class="info" *ngIf="customer" (click)="goBack()">Search New Customer</button>
+
 </div>
