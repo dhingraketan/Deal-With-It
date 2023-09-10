@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const repSchema = mongoose.Schema({
 
-  Username: String,
+  username: String,
   password: String,
   storeNum: Number,
 });

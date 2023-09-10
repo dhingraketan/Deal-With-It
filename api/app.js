@@ -22,7 +22,7 @@ app.use(
   cors({
     origin: 'http://0.0.0.0:4200',
     origin: 'http://localhost:4200',
-    origin: 'http://192.168.1.93:4200',
+    origin: 'http://192.168.1.97:4200',
     credentials: true,
     methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE']
   }

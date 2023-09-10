@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from '../authentication.service';
+import { FormService } from '../form.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
   isSubmitted = false;
   returnUrl = '';
 
-  constructor(private formBuilder: FormBuilder, private activatedRoute: ActivatedRoute, private router: Router, private authenticationService: AuthenticationService) {}
+  constructor(private formService: FormService, private formBuilder: FormBuilder, private activatedRoute: ActivatedRoute, private router: Router, private authenticationService: AuthenticationService) {}
 
 
   ngOnInit(): void {
@@ -40,7 +41,7 @@ export class LoginComponent implements OnInit {
     this.authenticationService.login({username:this.fc['username'].value,
     password:this.fc['password'].value, storeNum:this.fc['storeNum'].value}).subscribe((res: any) => {
       localStorage.setItem("currentUserId", res.username);
-      this.router.navigateByUrl(this.returnUrl);
+      this.formService.navigateToRepZone();
     }); 
   }
 }
