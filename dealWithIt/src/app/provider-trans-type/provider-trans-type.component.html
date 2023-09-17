@@ -23,6 +23,15 @@ only be able to select one tile just like a radio button -->
           <img src="assets/aal-logo.png" alt="AAL logo" class="provider-logo">
         </label>
 
+        <div class="or">
+          <h3>OR</h3>
+        </div>
+
+        <label class="provider-tile" id="noProvider">
+          <input type="radio" name="NAC" [(ngModel)]="providerTransType" value="NAC" required>
+          <img src="assets/nac-logo.png" alt="NAC logo" class="provider-logo">
+        </label>
+
       </div>
       <button class="prevBtn" (click)="goBack()">&#60; Previous</button>
       <button class="nextBtn" (click)="onSubmit()">Next ></button>

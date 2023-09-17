@@ -66,7 +66,7 @@ export class FormService {
         this.path.push(currentStepIndex);
         currentStepIndex = 6;
         this.router.navigate([this.steps[currentStepIndex]]);
-      } else if (userInput == "AAL") {
+      } else if (userInput == "AAL" || userInput == "NAC") {
         this.path.push(currentStepIndex);
         currentStepIndex = 5;
         this.router.navigate([this.steps[currentStepIndex]]);
@@ -136,7 +136,7 @@ export class FormService {
     } else if (stepId == 8) {
       this.customer.homeService = data.homeService;
 
-      if (this.providerTransType == null) {
+      if (this.providerTransType == null || "NAC") {
       
         if (this.newlineTransType == "FIN") {
           this.customer.transType = "NAC_FIN";
