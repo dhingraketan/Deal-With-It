@@ -18,15 +18,17 @@ var repsRouter = require('./routes/reps');
 
 var app = express();
 
-app.use(
-  cors({
-    origin: 'http://0.0.0.0:4200',
-    origin: 'http://localhost:4200',
-    origin: 'http://192.168.1.97:4200',
-    credentials: true,
-    methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE']
-  }
-));
+// app.use(
+//   cors({
+//     origin: 'http://0.0.0.0:4200',
+//     origin: 'http://localhost:4200',
+//     origin: 'http://192.168.1.97:4200',
+//     credentials: true,
+//     methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE']
+//   }
+// ));
+
+
 
 
 
@@ -34,10 +36,19 @@ app.use(
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+app.use(express.static(path.join(__dirname, 'deal-with-it')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'deal-with-it'));
+});
+
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);

@@ -136,7 +136,7 @@ export class FormService {
     } else if (stepId == 8) {
       this.customer.homeService = data.homeService;
 
-      if (this.providerTransType == null || "NAC") {
+      if (this.providerTransType == null) {
       
         if (this.newlineTransType == "FIN") {
           this.customer.transType = "NAC_FIN";
@@ -153,6 +153,13 @@ export class FormService {
 
         } else if (this.newlineTransType == "BYOD") {
           this.customer.transType = "AAL_BYOD";
+        }
+      } else if (this.providerTransType == "NAC") {
+        if (this.newlineTransType == "FIN") {
+          this.customer.transType = "NAC_FIN";
+
+        } else if (this.newlineTransType == "BYOD") {
+          this.customer.transType = "NAC_BYOD";
         }
       }
     }
